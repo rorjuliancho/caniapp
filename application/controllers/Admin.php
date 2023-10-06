@@ -68,4 +68,11 @@ class Admin extends CI_Controller
 		$this->load->view('new');
 		$this->load->view('main/footer');
 	}
+
+	public function medidas()
+	{
+		$this->load->view('main/head');
+		$this->load->view('medidas');
+		$this->load->view('main/footer');
+	}
 }

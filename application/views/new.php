@@ -58,7 +58,7 @@
                              <h2>Medidas zoométricas</h2>
                          </div>
                          <div class="col-lg-6 text-right">
-                             <a class="btn btn-primary " href="<?= base_url('Admin/comomedir') ?>">¿Cómo Medir?</a>
+                             <a class="btn btn-primary " href="<?= base_url('Admin/medidas') ?>">¿Cómo Medir?</a>
                          </div>
                      </div>
                      <div class="form-row">
