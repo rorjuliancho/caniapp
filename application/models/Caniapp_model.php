@@ -15,14 +15,13 @@ class Caniapp_model extends CI_Model
      *
      */
 
-
     public function login($user, $password)
     {
 
         $this->db->select('*');
-        $this->db->where('estado !=', '1');
-        $this->db->where('estado !=', '1');
-        $query = $this->db->get('guia');
+        $this->db->where('email', $user);
+        $this->db->where('password', $password);
+        $query = $this->db->get('padre_mascota');
 
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -30,6 +29,19 @@ class Caniapp_model extends CI_Model
             return false;
         }
     }
+
+    public function allPacientes()
+    {
+        $this->db->select('*');
+        $query = $this->db->get('paciente');
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
     public function informacion()
     {
         $this->db->select('*');

@@ -12,8 +12,9 @@ class Login extends CI_Controller
 
 	public function index()
 	{
+		$result['msg'] = "";
 		$this->load->view('login/head');
-		$this->load->view('login');
+		$this->load->view('login', $result);
 		$this->load->view('login/footer');
 	}
 
@@ -21,44 +22,45 @@ class Login extends CI_Controller
 	{
 		$user = $this->input->post('user');
 		$pass = $this->input->post('pass');
+		$login = $this->Caniapp_model->login($user, $pass);
 
-
-
-		if ($user == 'caniapp@gmail.com' && $pass = '123') {
-			redirect('admin/home');
-		} else {
-			redirect('');
-		}
-
-
-
-
-		//$login = $this->Caniapp_model->login($user, $pass);
-
-		/* if ($login) {
-			if ($login[0]->tipoUsuario == "Colaborador") {
+		if ($login) {
+			if ($login[0]->idrol == 1) {
 				$userLogin = array(
 					'logueado' => TRUE,
-					'idUser' => $login[0]->idcolaborador,
+					'idpadre_mascota' => $login[0]->idcolaborador,
 					'nombre' => $login[0]->nombre,
 					'apellido' => $login[0]->apellido,
-					'cargo' => $login[0]->cargo,
-					'tipoUsuario' => $login[0]->tipoUsuario
+					'idrol' => $login[0]->idrol,
 				);
 				$this->session->set_userdata($userLogin);
-				redirect('Welcome/main');
+				redirect('Admin');
 			} else {
 				$userLogin = array(
 					'logueado' => TRUE,
-					'idUser' => $login[0]->idcolaborador,
+					'idpadre_mascota' => $login[0]->idcolaborador,
 					'nombre' => $login[0]->nombre,
 					'apellido' => $login[0]->apellido,
-					'cargo' => $login[0]->cargo,
-					'tipoUsuario' => $login[0]->tipoUsuario
+					'idrol' => $login[0]->idrol,
 				);
 				$this->session->set_userdata($userLogin);
-				redirect('Welcome/admin');
+				redirect('Cliente');
 			}
-		} */
+		} else {
+			$result['msg'] = "Por favor valide los datos ingresados";
+			$this->load->view('login/head');
+			$this->load->view('login', $result);
+			$this->load->view('login/footer');
+		}
+	}
+
+	public function logout()
+	{
+		$userLogin = array(
+			'logueado' => FALSE
+		);
+
+		$this->session->set_userdata($userLogin);
+		redirect('');
 	}
 }
