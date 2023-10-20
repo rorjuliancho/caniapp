@@ -12566,3 +12566,30 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
     width: 100%
 }
+
+
+/*clases personalizadas*/
+
+.bg-purple {
+    background-color: #E313A8;
+}
+
+.bg-red {
+    background-color: #FF0000;
+}
+
+.bg-yellow {
+    background-color: #FFC000;
+}
+
+.bg-magenta {
+    background-color: #7030A0;
+}
+
+.bg-green {
+    background-color: #03AE50;
+}
+
+.bg-orange {
+    background-color: #C25911;
+}

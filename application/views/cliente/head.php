@@ -40,7 +40,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin') ?>">
+                <a class="nav-link" href="<?= base_url('Cliente') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Principal</span></a>
             </li>
@@ -48,55 +48,29 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Paciente
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-dog"></i>
-                    <span>Crear</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= base_url('admin/new') ?>">Nuevo Paciente</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
                 Información General
             </div>
 
-            <!-- Nav Item - Notificaciones -->
-            <li class="nav-item ">
-                <a class="nav-link" href="<?= base_url('Admin/viewNotificacion') ?>">
-                    <i class="fas fa-fw fa-sticky-note"></i>
-                    <span>Notificaciones</span></a>
-            </li>
             <!-- Nav Item - Como medir -->
             <li class="nav-item ">
-                <a class="nav-link" href="<?= base_url('Admin/medidas') ?>">
+                <a class="nav-link" href="<?= base_url('Cliente/medidascliente') ?>">
                     <i class="fas fa-fw fa-ruler-horizontal"></i>
                     <span>¿Cómo Medir ?</span></a>
             </li>
 
             <!-- Nav Item - Quienes Somos -->
             <li class="nav-item ">
-                <a class="nav-link" href="<?= base_url('Admin/nosotros') ?>">
+                <a class="nav-link" href="<?= base_url('Cliente/nosotroscliente') ?>">
                     <i class="fas fa-fw fa-people-carry"></i>
                     <span>¿Quienes Somos?</span></a>
             </li>
 
             <!-- Nav Item - Cuidados -->
             <li class="nav-item ">
-                <a class="nav-link" href="<?= base_url('Admin/cuidado') ?>">
+                <a class="nav-link" href="<?= base_url('Cliente/cuidadoscliente') ?>">
                     <i class="fas fa-fw fa-book-medical"></i>
                     <span>Cuidados</span></a>
             </li>
@@ -278,7 +252,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Cliente</span>
                                 <img class="img-profile rounded-circle" src="<?= base_url('public/img/undraw_profile.svg') ?>">
                             </a>
                             <!-- Dropdown - User Information -->

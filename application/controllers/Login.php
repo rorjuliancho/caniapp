@@ -28,7 +28,7 @@ class Login extends CI_Controller
 			if ($login[0]->idrol == 1) {
 				$userLogin = array(
 					'logueado' => TRUE,
-					'idpadre_mascota' => $login[0]->idcolaborador,
+					'idpadre_mascota' => $login[0]->idpadre_mascota,
 					'nombre' => $login[0]->nombre,
 					'apellido' => $login[0]->apellido,
 					'idrol' => $login[0]->idrol,
@@ -38,7 +38,7 @@ class Login extends CI_Controller
 			} else {
 				$userLogin = array(
 					'logueado' => TRUE,
-					'idpadre_mascota' => $login[0]->idcolaborador,
+					'idpadre_mascota' => $login[0]->idpadre_mascota,
 					'nombre' => $login[0]->nombre,
 					'apellido' => $login[0]->apellido,
 					'idrol' => $login[0]->idrol,
