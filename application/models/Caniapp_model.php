@@ -12,9 +12,10 @@ class Caniapp_model extends CI_Model
     public function login($user, $password)
     {
         $this->db->select('*');
-        $this->db->where('email', $user);
-        $this->db->where('password', $password);
-        $query = $this->db->get('padre_mascota');
+        $this->db->where('pm.email', $user);
+        $this->db->where('pm.password', $password);
+        $this->db->join('paciente p', 'p.id_padre = pm.idpadre_mascota', 'left');
+        $query = $this->db->get('padre_mascota pm');
 
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -26,7 +27,9 @@ class Caniapp_model extends CI_Model
     public function allPacientes()
     {
         $this->db->select('*');
-        $query = $this->db->get('paciente');
+        $this->db->where('estado !=', '0');
+        $this->db->join('padre_mascota pm', 'pm.idpadre_mascota = p.id_padre');
+        $query = $this->db->get('paciente p');
 
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -131,5 +134,72 @@ class Caniapp_model extends CI_Model
         } else {
             return false;
         }
+    }
+
+    public function resultEncuesta($id)
+    {
+        $this->db->select('*');
+        $this->db->where('idPadre', $id);
+        $this->db->join('padre_mascota pm', 'pm.idpadre_mascota = re.idPadre');
+        $this->db->join('encuesta e', 'e.idencuesta = re.idEncuesta');
+        $query = $this->db->get('respuestasencuestas re ');
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    public function encuesta()
+    {
+        $this->db->select('*');
+        $query = $this->db->get('encuesta');
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    public function guardarEncuesta($data)
+    {
+        $this->db->insert('respuestasencuestas', $data);
+    }
+
+    public function editCliente($id)
+    {
+        $this->db->select('*');
+        $query = $this->db->get('encuesta');
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+
+
+    public function UpdatePadreMascota($data, $idPadre)
+    {
+        $this->db->where('idpadre_mascota', $idPadre);
+        $this->db->update('padre_mascota', $data);
+    }
+
+    public function UpdateCanino($data, $idPaciente)
+    {
+        $this->db->where('idpaciente', $idPaciente);
+        $this->db->update('paciente', $data);
+    }
+
+    public function actualizarImagen($data, $idPaciente)
+    {
+        $this->db->where('idpaciente', $idPaciente);
+        $this->db->update('paciente', $data);
+    }
+
+    public function DeletePaciente($data, $idpaciente)
+    {
+        $this->db->where('idpaciente', $idpaciente);
+        $this->db->update('paciente', $data);
     }
 }

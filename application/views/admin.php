@@ -44,7 +44,8 @@
                     <tbody>
                         <?php if ($paciente) { ?>
                             <?php foreach ($paciente as $p) { ?>
-                                <tr>
+
+                                <tr id="<?= $p->idpaciente ?>">
                                     <td><?= $p->idpaciente ?></td>
                                     <td><?= $p->nombre_canino ?></td>
                                     <td><?= $p->sexo_canino ?></td>
@@ -56,12 +57,14 @@
                                         <a href="<?= base_url() ?>Admin/view/<?= $p->idpaciente ?>" class="btn btn-primary btn-sm">
                                             <span class="text">Ver</span>
                                         </a>
-                                      <!--   <a href="<?= base_url() ?>Admin/edit/<?= $p->idpaciente ?>" class="btn btn-success btn-sm">
+                                        <a href="<?= base_url() ?>Admin/edit/<?= $p->idpaciente ?>" class="btn btn-success btn-sm">
                                             <span class="text">Editar</span>
                                         </a>
-                                        <a href="#" class="btn btn-danger btn-sm">
+                                        <!-- <a href="<?= base_url() ?>Admin/delete/<?= $p->idpaciente ?>" class="btn btn-danger btn-sm">
                                             <span class="text">Eliminar</span>
                                         </a> -->
+
+                                        <button class="btn btn-danger btn-sm remove">Eliminar</button>
                                         <a href="<?= base_url() ?>Admin/notification/<?= $p->idpaciente ?>" class="btn btn-warning btn-sm">
                                             <span class="text">Notificaciones</span>
                                         </a>

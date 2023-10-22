@@ -81,4 +81,26 @@ class Cliente extends CI_Controller
         $this->load->view('cuidadoscliente');
         $this->load->view('cliente/footer');
     }
+
+    public function encuestacliente()
+    {
+        $result['encuesta'] = $this->Caniapp_model->encuesta();
+        $this->load->view('cliente/head');
+        $this->load->view('encuestacliente', $result);
+        $this->load->view('cliente/footer');
+    }
+
+    public function guardar_encuesta()
+    {
+        $idPadre = $this->session->userdata('idpadre_mascota');
+
+        for ($i = 1; $i <= 5; $i++) {
+            $data = array(
+                'idPadre' => $idPadre,
+                'idEncuesta' => $i,
+                'respuesta' => $this->input->post('respuesta' . $i)
+            );
+            $this->Caniapp_model->guardarEncuesta($data);
+        }
+    }
 }

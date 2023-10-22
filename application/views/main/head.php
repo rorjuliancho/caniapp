@@ -101,6 +101,13 @@
                     <span>Cuidados</span></a>
             </li>
 
+            <!-- Nav Item - Cuidados -->
+            <li class="nav-item ">
+                <a class="nav-link" href="<?= base_url('Admin/encuesta') ?>">
+                    <i class="fas fa fa-info-circle"></i>
+                    <span>Encuesta</span></a>
+            </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

@@ -104,7 +104,7 @@
                                 <p>Nombre: <strong><?= $i->nombre ?></strong></p>
                             </div>
                             <div class="col-lg-3">
-                                <p>apellido: <strong><?= $i->nombre ?></strong></p>
+                                <p>apellido: <strong><?= $i->apellido ?></strong></p>
                             </div>
                             <div class="col-lg-3">
                                 <p>Dirección: <strong><?= $i->direccion ?></strong></p>

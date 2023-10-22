@@ -35,7 +35,7 @@ class Login extends CI_Controller
 				);
 				$this->session->set_userdata($userLogin);
 				redirect('Admin');
-			} else {
+			} elseif ($login[0]->idrol == 2 && $login[0]->estado == '1') {
 				$userLogin = array(
 					'logueado' => TRUE,
 					'idpadre_mascota' => $login[0]->idpadre_mascota,
@@ -45,6 +45,11 @@ class Login extends CI_Controller
 				);
 				$this->session->set_userdata($userLogin);
 				redirect('Cliente');
+			} else {
+				$result['msg'] = "El usuario se encuentra eliminado";
+				$this->load->view('login/head');
+				$this->load->view('login', $result);
+				$this->load->view('login/footer');
 			}
 		} else {
 			$result['msg'] = "Por favor valide los datos ingresados";
